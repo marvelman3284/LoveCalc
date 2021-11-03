@@ -2,7 +2,6 @@ package LoveCalc;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-import java.math.*;
 
 public class Love {
 
@@ -13,16 +12,13 @@ public class Love {
     private static int LovePercent;
     private static int divoracePercent;
     private static String WhoDivoraced;
-    private static String gender;
-    private static String boy = "boy";
-    private static String girl = "girl";
     private static int kids;
 
     public static void Main() {
         LoveCalc();
+        oneNight();
         marriage();
         Date();
-
     }
     public static void LoveCalc() {
         Scanner sc = new Scanner(System.in);
@@ -35,11 +31,9 @@ public class Love {
 
         lovePercent = Math.random() * 100;
 
-        LovePercent = (int) Math.floor(lovePercent);
+        LovePercent = (int) (Math.floor(lovePercent) + 15.0);
 
         System.out.println("\n" + name1 + " has a " + LovePercent + "% chance of falling in love with " + name2);
-
-        oneNight();
     }
 
     public static void marriage() {
@@ -50,34 +44,32 @@ public class Love {
 
             System.out.println("\n" + name1 + " has a " + MarriedPercent + "% chance of getting married to " + name2);
 
-            if (MarriedPercent >= 85) {
-                int minKids = 0;
-                int maxKids = 5;
-                kids = ThreadLocalRandom.current().nextInt(minKids, maxKids + 1);
-
-                System.out.println("\n" + name1 + " and " + name2 + " will have " + kids + " kids");
             marriageStatus();
             reMarriage();
             kidStatus();
-            }
         }
     }
 
     public static void kidStatus() {
         List<Integer> genderStatus = Arrays.asList(1, 2);
+        List<Integer> kidAmt = Arrays.asList(1, 2, 3, 4, 5);
         Random rand = new Random();
         int genders = genderStatus.get(rand.nextInt(genderStatus.size()));
-        int i = 0;
-        if (genders == 1) {
-            gender = boy;
-        } else {
-            gender = girl;
+        int kidAmts = kidAmt.get(rand.nextInt(kidAmt.size()));
+        int boys = 0;
+        int girls = 0;
+        for (int i = 0; i < kidAmts; i++) {
+            String gender;
+            if (genders == 0) {
+                boys+=1;
+            } else {
+                girls+=1;
+            }
         }
-        // TODO create odds of kids gender class
-        System.out.println("Your kids will all be " + gender);
+        System.out.println("You will have " + boys + " boys and " + girls + " girls.");
     }
 
-    public static  void marriageStatus() {
+    public static void marriageStatus() {
         int minYears = 1;
         int maxYears = 100;
         int minMonths = 1;
