@@ -94,7 +94,7 @@ public class Love {
                 } else {
                     WhoDivoraced = name2;
                 }
-                System.out.println("\n" + name1 + " and " + name2 + " marriage will last for " + marriageYears + " years, " + marriageMonths + " months, and " + marriageDays + " days. The chance of a divorce is " + divoracePercent + "%. It will be " + WhoDivoraced + " who servers.");
+                System.out.println("\n" + name1 + " and " + name2 + " marriage will last for " + marriageYears + " years, " + marriageMonths + " months, and " + marriageDays + " days. The chance of a divorce is " + divoracePercent + "%. It will be " + WhoDivoraced + " who divorces.");
             }
         }
     }
